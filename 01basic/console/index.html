@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Console Methods Explained</title>
+</head>
+<body>
+  <h1>Open Console and Click the Button</h1>
+
+  <button onclick="runAllConsoleMethods()">Run Console Methods</button>
+
+  <script>
+    function runAllConsoleMethods() {
+      // 1. console.assert() - Log error only if assertion fails
+      console.assert(1 === 2, "Assertion Failed: 1 is not equal to 2");
+
+      // 2. console.clear() - Clear the console
+      // Uncomment below if you want to clear after all logs
+      // console.clear();
+
+      // 3. console.context() - Not supported in all browsers, used in Chrome DevTools
+      //console.context(document.body);
+
+      // 4. console.count() - Counts how many times it is called with the same label
+      console.count("Counter A");
+      console.count("Counter A");
+      console.count("Counter B");
+
+      // 5. console.countReset() - Resets a specific counter
+      console.countReset("Counter A");
+      console.count("Counter A"); // Starts from 1 again
+
+      // 6. console.createTask() - Internal Chrome devtools API (ignore for general coding)
+
+      // 7. console.debug() - Same as log, but filtered under "Verbose" in devtools
+      console.debug("This is a debug message");
+
+      // 8. console.dir() - Displays an interactive list of properties
+      console.dir(document.body);
+
+      // 9. console.dirxml() - Displays an XML-like tree
+      console.dirxml(document.body);
+
+      // 10. console.error() - Outputs an error message
+      console.error("This is an error message");
+
+      // 11. console.group() - Start a group of messages
+      console.group("Group 1");
+      console.log("Inside group 1");
+      console.log("Still inside group 1");
+      console.groupCollapsed("Nested Collapsed Group");
+      console.log("Inside nested collapsed group");
+      console.groupEnd(); // Ends nested group
+      console.groupEnd(); // Ends Group 1
+
+      // 12. console.info() - Informational message
+      console.info("This is an info message");
+
+      // 13. console.log() - Normal message
+      console.log("This is a normal log");
+
+      // 14. console.memory - Shows memory usage info (read-only)
+      console.log("Memory Info:", console.memory);
+
+      // 15. console.profile() - Start recording a performance profile (only useful if DevTools is open)
+      console.profile("Profile1");
+      for (let i = 0; i < 100000; i++) {} // Some work
+      console.profileEnd("Profile1");
+
+      // 16. console.table() - Display data as a table
+      console.table([
+        { name: "Alice", age: 25 },
+        { name: "Bob", age: 30 }
+      ]);
+
+      // 17. console.time() - Start a timer
+      console.time("Timer1");
+      for (let i = 0; i < 500000; i++) {} // Dummy task
+      console.timeLog("Timer1", "Halfway check"); // Log without stopping
+      console.timeEnd("Timer1"); // End timer
+
+      // 18. console.timeStamp() - Mark a timestamp in the browser's timeline
+      console.timeStamp("Custom Timestamp");
+
+      // 19. console.trace() - Show the call stack trace
+      function firstFunction() {
+        secondFunction();
+      }
+      function secondFunction() {
+        thirdFunction();
+      }
+      function thirdFunction() {
+        console.trace("Trace Example");
+      }
+      firstFunction();
+
+      // 20. console.warn() - Warning message
+      console.warn("This is a warning message");
+    }
+  </script>
+</body>
+</html>
